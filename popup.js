@@ -4,14 +4,11 @@
 
 'use strict';
 
-(function () {
-
 var links = document.getElementsByTagName("a");
 
 for (let i = 0; i < links.length; i++) {
   const element = links[i];
-  re = /GROUP (A|B|C|D)$/;
+  let re = /GROUP (A|B|C|D)$/;
   var val = re.exec(element.innerHTML)
   if (val && val[1]=="A") { element.style.backgroundColor = "red"; }
 }
-})();
