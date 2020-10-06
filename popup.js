@@ -4,18 +4,14 @@
 
 'use strict';
 
-let changeColor = document.getElementById('changeColor');
+(function () {
 
-chrome.storage.sync.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
-});
+var links = document.getElementsByTagName("a");
 
-changeColor.onclick = function(element) {
-  let color = element.target.value;
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
-        tabs[0].id,
-        {code: 'document.body.style.backgroundColor = "' + color + '";'});
-  });
-};
+for (let i = 0; i < links.length; i++) {
+  const element = links[i];
+  re = /GROUP (A|B|C|D)$/;
+  var val = re.exec(element.innerHTML)
+  if (val && val[1]=="A") { element.style.backgroundColor = "red"; }
+}
+})();
