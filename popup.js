@@ -6,9 +6,19 @@
 
 var links = document.getElementsByTagName("a");
 
-for (let i = 0; i < links.length; i++) {
-  const element = links[i];
-  let re = /GROUP (A|B|C|D)$/;
-  var val = re.exec(element.innerHTML)
-  if (val && val[1]=="A") { element.style.backgroundColor = "red"; }
-}
+chrome.storage.sync.get('group', function (data) {
+  var c = data.group;
+  for (let i = 0; i < links.length; i++) {
+    const element = links[i];
+    let re = /GROUP (A|B|C|D)$/;
+    var val = re.exec(element.innerHTML)
+    if (val && val[1] == c) { element.style.backgroundColor = "red"; }
+  }
+});
+
+// for (let i = 0; i < links.length; i++) {
+//   const element = links[i];
+//   let re = /GROUP (A|B|C|D)$/;
+//   var val = re.exec(element.innerHTML)
+//   if (val && val[1]=="A") { element.style.backgroundColor = "red"; }
+// }

@@ -12,7 +12,9 @@
   "browser_action": {},
   "permissions": [
     "tabs",
+    "storage",
     "https://*/*",
     "http://*/*"
-  ]
+  ],
+  "options_page": "options.html"
 }
