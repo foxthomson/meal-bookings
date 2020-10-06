@@ -5,7 +5,7 @@
 'use strict';
 
 var links = document.getElementsByTagName("a");
-alert(1);
+
 chrome.storage.sync.get('group', function (data) {
   var c = data.group;
   for (let i = 0; i < links.length; i++) {
