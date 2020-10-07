@@ -12,7 +12,9 @@ chrome.storage.sync.get('group', function (data) {
     const element = links[i];
     let re = /GROUP (A|B|C|D)$/;
     var val = re.exec(element.innerHTML)
-    if (val && val[1] == c) { element.style.backgroundColor = "red"; }
+    if (val) {
+      if (val[1] == c) { element.style.backgroundColor = "red"; } else { element.style.backgroundColor = "grey"; } 
+    }
   }
 });
 

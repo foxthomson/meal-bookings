@@ -4,6 +4,10 @@
 
 'use strict';
 
+chrome.tabs.executeScript(null, {
+  file: 'popup.js'
+});
+
 let page = document.getElementById('buttonDiv');
 const kButtonColors = ['A', 'B', 'C', 'D'];
 function constructOptions(kButtonColors) {
@@ -12,7 +16,9 @@ function constructOptions(kButtonColors) {
     button.innerHTML = item;
     button.addEventListener('click', function() {
       chrome.storage.sync.set({group: item}, function() {
-        console.log('color is ' + item);
+        chrome.tabs.executeScript(null, {
+          file: 'popup.js'
+        });
       })
     });
     page.appendChild(button);

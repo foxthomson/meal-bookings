@@ -9,13 +9,20 @@
         margin: 10px;
       }
     </style>
+    <script>
+      chrome.tabs.executeScript(null, {
+        file: 'popup.js'
+      });
+    </script>
   </head>
   <body>
     <div id="buttonDiv">
     </div>
     <div>
-      <p>Choose a different background color!</p>
+      <p>Choose your group</p>
     </div>
+    <a>GROUP A</a>
+
   </body>
   <script src="options.js"></script>
 </html>
