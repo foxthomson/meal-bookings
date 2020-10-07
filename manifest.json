@@ -7,7 +7,8 @@
     "declarativeContent",
     "storage",
     "tabs",
-    "https://www.mealbookings.cai.cam.ac.uk/*"
+    "https://www.mealbookings.cai.cam.ac.uk/*",
+    "activeTab"
   ],
   "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
   "options_page": "options.html",
@@ -17,6 +18,16 @@
     ],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.mealbookings.cai.cam.ac.uk/*"
+      ],
+      "js": [
+        "contentScript.js"
+      ]
+    }
+  ],
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
