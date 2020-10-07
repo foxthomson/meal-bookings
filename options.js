@@ -4,10 +4,6 @@
 
 'use strict';
 
-chrome.tabs.executeScript(null, {
-  file: 'highlight.js'
-});
-
 let page = document.getElementById('buttonDiv');
 const kButtonColors = ['A', 'B', 'C', 'D'];
 function constructOptions(kButtonColors) {
