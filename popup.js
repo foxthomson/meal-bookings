@@ -13,7 +13,7 @@ chrome.storage.sync.get('group', function (data) {
     let re = /GROUP (A|B|C|D)$/;
     var val = re.exec(element.innerHTML)
     if (val) {
-      if (val[1] == c) { element.style.backgroundColor = "red"; } else { element.style.backgroundColor = "grey"; } 
+      if (val[1] == c) { element.style.backgroundColor = "#a6eded"; } else { element.style.backgroundColor = "#e6eded"; } 
     }
   }
 });
