@@ -9,9 +9,3 @@ chrome.runtime.onInstalled.addListener(function () {
     console.log('The color is green.');
   });
 });
-
-// chrome.browserAction.onClicked.addListener(function (tab) {
-//   chrome.tabs.executeScript(tab.ib, {
-//     file: 'popup.js'
-//   });
-// });

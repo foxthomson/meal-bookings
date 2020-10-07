@@ -5,7 +5,7 @@
 'use strict';
 
 chrome.tabs.executeScript(null, {
-  file: 'popup.js'
+  file: 'highlight.js'
 });
 
 let page = document.getElementById('buttonDiv');
@@ -17,7 +17,7 @@ function constructOptions(kButtonColors) {
     button.addEventListener('click', function() {
       chrome.storage.sync.set({group: item}, function() {
         chrome.tabs.executeScript(null, {
-          file: 'popup.js'
+          file: 'highlight.js'
         });
       })
     });
