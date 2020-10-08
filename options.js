@@ -7,11 +7,7 @@ function constructOptions(kButtonColors) {
     let button = document.createElement('button');
     button.innerHTML = item;
     button.addEventListener('click', function() {
-      chrome.storage.sync.set({group: item}, function() {
-        chrome.tabs.executeScript(null, {
-          file: 'highlight.js'
-        });
-      })
+      chrome.storage.sync.set({group: item})
     });
     page.appendChild(button);
   }
