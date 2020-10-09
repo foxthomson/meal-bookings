@@ -14,13 +14,14 @@ function geteventscore(links, answer) {
 
 function getevents(groupname) {
     // finds all the link's to events (and colours the links) then starts geteventscore
+    var links = [];
     var as = document.getElementsByTagName("a");
     for (let i = 0; i < as.length; i++) {
         const current = as[i];
         groupdata = groupcheck.exec(current.innerHTML);
         if (groupdata) {
             if (groupdata[1] == groupname.group) {
-                var eventlink = idcheck.exec(current.outerHTML)[0];
+                var eventlink = current.href;
                 links.push(eventlink);
                 current.style.backgroundColor = "#a6eded"; 
             }   
