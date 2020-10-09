@@ -21,13 +21,15 @@ function getevents(groupname) {
     for (let i = 0; i < as.length; i++) {
         const current = as[i];
         groupdata = groupcheck.exec(current.innerHTML);
-        if (groupdata && groupdata[1] == groupname.group) {
-            var eventlink = idcheck.exec(current.outerHTML)[0];
-            links.push(eventlink);
-            current.style.backgroundColor = "#a6eded"; 
-        }   
-        else { current.style.backgroundColor = "#e6eded"; }
-    };
+        if (groupdata) {
+            if (groupdata[1] == groupname.group) {
+                var eventlink = idcheck.exec(current.outerHTML)[0];
+                links.push(eventlink);
+                current.style.backgroundColor = "#a6eded"; 
+            }   
+            else { current.style.backgroundColor = "#e6eded"; }
+        }
+    }
     geteventscore(links, []);
 }
 
