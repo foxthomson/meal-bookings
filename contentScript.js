@@ -8,7 +8,7 @@ function geteventscore(links, answer) {
     if (links.length == 0) {
         console.log(answer);
     } else {
-        $.get(links[0], processdates(links.slice(1), links[0], answer))
+        $.get(links[0], processdates(links.slice(1), links[0], answer));
     }
 }
 
@@ -51,3 +51,13 @@ function processdates(links, link, answer) {
 }
 
 chrome.storage.sync.get('group', getevents); // fetch global group variable and fills events array
+
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        console.log(sender.tab ?
+            "from a content script:" + sender.tab.url :
+            "from the extension");
+        if (request.greeting == "hello")
+            sendResponse({ farewell: "goodbye" });
+        return true;
+    });
