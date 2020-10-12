@@ -22,6 +22,10 @@ td.on {
 }
 
 td.day {
+  text-align: center;
+}
+
+td.day {
   text-align: left;
   width: 30px;
 }

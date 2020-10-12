@@ -17,6 +17,8 @@ function openLink(href) {
     }
 }
 
+document.getElementById("options").addEventListener('click', openLink("/options.html"));
+
 function maketable(data) {
     // make the table
     let table = document.querySelector("table");
@@ -24,6 +26,12 @@ function maketable(data) {
         let element = data[i];
         let row = table.insertRow();
         row.addEventListener('click', openLink(element.link));
+        if (element.bookable) {
+            row.className = "bookable";
+        } else {
+            row.className = "nonbookable"
+        }
+        
         let timenode = document.createElement("td");
         timenode.innerText = processtime(element.time);
         timenode.className='time';
