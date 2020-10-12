@@ -50,7 +50,7 @@ function processdates(links, linkdat, answer, ansfun) {
         for (let i = 0; i < possibledates.length; i++) {
             const current = possibledates[i];
             if (daycheck.test(current.innerHTML)) {
-                answer.push({link: linkdat.link, date: current.innerText, time: time});
+                answer.push({link: current.href, date: current.innerText, time: time});
             }
             if (firstpage && nextpagecheck.test(current.innerHTML)) {
                 links.push({link: current.href, firstpage: false});
