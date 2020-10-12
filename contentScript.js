@@ -50,7 +50,11 @@ function processdates(links, linkdat, answer, ansfun) {
         for (let i = 0; i < possibledates.length; i++) {
             const current = possibledates[i];
             if (daycheck.test(current.innerHTML)) {
-                answer.push({link: current.href, date: current.innerText, time: time});
+                if (current.parentElement.parentElement.cells.length == 2) {
+                    answer.push({link: current.href, date: current.innerText, time: time, bookable: true});
+                } else {
+                    answer.push({ link: current.href, date: current.innerText, time: time, bookable: false });
+                }
             }
             if (firstpage && nextpagecheck.test(current.innerHTML)) {
                 links.push({link: current.href, firstpage: false});

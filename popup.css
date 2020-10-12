@@ -40,4 +40,5 @@ td.date {
   cursor: pointer;
 }
 
-tr:hover {background-color: #79ad61 }
+tr.bookable:hover {background-color: #c9ecec }
+tr.nonbookable:hover {background-color: #9d9e9e }
