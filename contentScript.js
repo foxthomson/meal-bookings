@@ -1,7 +1,7 @@
 var groupcheck = /GROUP (A|B|C|D)$/;
 var timecheck = /(?<=Cafeteria\s)[0-9.-\s]{0,15}(?=\s-)/
 var idcheck = /(?<=href=")[a-z0-9?=]{0,50}(?=")/
-var daycheck = /^(Mon|Tue|Wed|Thurs|Fri|Sat|Sun)/;
+var daycheck = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/;
 var nextpagecheck = /Later/;
 
 function geteventscore(links, answer, ansfun) {

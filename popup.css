@@ -10,21 +10,25 @@ table {
 td.time {
   border-bottom: 1px solid #ddd;
   text-align: right;
-  padding: 0px;
   cursor: pointer;
 }
 
 td.on {
   border-bottom: 1px solid #ddd;
   text-align: center;
-  padding: 0px;
   cursor: pointer;
+}
+
+td.day {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  cursor: pointer;
+  width: 20px;
 }
 
 td.date {
   border-bottom: 1px solid #ddd;
   text-align: left;
-  padding: 0px;
   cursor: pointer;
 }
 
