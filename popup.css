@@ -1,41 +1,42 @@
 body {
-  min-width: 600px;
+  min-width: 300px;
   max-width: 100%;
 }
 
 table {
-  width: 60%;
+  width: 100%;
   border-spacing: 0px;
 }
 
 td {
-    /* padding: 0px; */
+    border-bottom: 1px solid #c9ecec;
     cursor: pointer;
 }
 
 td.time {
-  border-bottom: 1px solid #ddd;
   text-align: right;
-  cursor: pointer;
 }
 
 td.on {
-  border-bottom: 1px solid #ddd;
   text-align: center;
-  cursor: pointer;
 }
 
 td.day {
-  border-bottom: 1px solid #ddd;
   text-align: left;
-  cursor: pointer;
-  width: 20px;
+  width: 30px;
 }
 
 td.date {
-  border-bottom: 1px solid #ddd;
   text-align: left;
-  cursor: pointer;
 }
 
-tr:hover {background-color: #79ad61 }
+tr:hover {background-color: #c9ecec }
+
+p {
+  text-align: right;
+}
+
+div {
+  text-align: right;
+  font-size: 8pt;
+}
