@@ -14,11 +14,7 @@ function maketable(data) {
         let element = data[i];
         let row = table.insertRow();
 
-        let linknode = document.createElement("a")
-        linknode.href = element.link 
-        linknode.innerHTML = " <td>" + processtime(element.time) + "</td> <td> on </td> <td>" + element.date + "</td> ";
-
-        row.appendChild(linknode);
+        row.innerHTML = " <td>" + processtime(element.time) + "</td> <td> on </td> <td>" + element.date + "</td> ";
     }
 }
 

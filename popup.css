@@ -2,3 +2,13 @@ body {
   min-width: 600px;
   max-width: 100%;
 }
+
+table {
+  width: 60%;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #79ad61 }
