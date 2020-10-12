@@ -3,16 +3,16 @@ var timecheck = /(?<=Cafeteria\s)[0-9.-\s]{0,15}(?=\s-)/
 var idcheck = /(?<=href=")[a-z0-9?=]{0,50}(?=")/
 var daycheck = /^(Mon|Tue|Wed|Thurs|Fri|Sat|Sun)/;
 
-function geteventscore(links, answer) {
+function geteventscore(links, answer, ansfun) {
     // Runs process dates on each link
     if (links.length == 0) {
-        console.log(answer);
+        ansfun(answer);
     } else {
-        $.get(links[0], processdates(links.slice(1), links[0], answer));
+        $.get(links[0], processdates(links.slice(1), links[0], answer, ansfun));
     }
 }
 
-function getevents(groupname) {
+function getevents(groupname, ansfun) {
     // finds all the link's to events (and colours the links) then starts geteventscore
     var links = [];
     var as = document.getElementsByTagName("a");
@@ -28,10 +28,10 @@ function getevents(groupname) {
             else { current.style.backgroundColor = "#e6eded"; }
         }
     }
-    geteventscore(links, []);
+    geteventscore(links, [], ansfun);
 }
 
-function processdates(links, link, answer) {
+function processdates(links, link, answer, ansfun) {
     // Wraper for process dates so it can be passed data from outside the $.get
     return function(html) {
         // gets the events then passes control back to geteventscore
@@ -46,7 +46,7 @@ function processdates(links, link, answer) {
                 answer.push({link: link, data: current.innerText, time: time});
             }
         }
-        geteventscore(links, answer);
+        geteventscore(links, answer, ansfun);
     }
 }
 
@@ -54,10 +54,6 @@ chrome.storage.sync.get('group', getevents); // fetch global group variable and 
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        console.log(sender.tab ?
-            "from a content script:" + sender.tab.url :
-            "from the extension");
-        if (request.greeting == "hello")
-            sendResponse({ farewell: "goodbye" });
+        getevents(request.group, sendResponse)
         return true;
     });
