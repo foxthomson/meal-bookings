@@ -5,27 +5,27 @@ body {
 
 table {
   width: 60%;
+  border-spacing: 0px;
+}
+
+td {
+    /* padding: 0px; */
+    cursor: pointer;
 }
 
 td.time {
   border-bottom: 1px solid #ddd;
   text-align: right;
-  padding: 0px;
-  cursor: pointer;
 }
 
 td.on {
   border-bottom: 1px solid #ddd;
   text-align: center;
-  padding: 0px;
-  cursor: pointer;
 }
 
 td.date {
   border-bottom: 1px solid #ddd;
   text-align: left;
-  padding: 0px;
-  cursor: pointer;
 }
 
 tr:hover {background-color: #79ad61 }
