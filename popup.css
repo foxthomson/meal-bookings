@@ -1,5 +1,5 @@
 body {
-  min-width: 200px;
+  min-width: 600px;
   max-width: 100%;
 }
 
@@ -7,8 +7,25 @@ table {
   width: 60%;
 }
 
-tr {
+td.time {
   border-bottom: 1px solid #ddd;
+  text-align: right;
+  padding: 0px;
+  cursor: pointer;
+}
+
+td.on {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 0px;
+  cursor: pointer;
+}
+
+td.date {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  padding: 0px;
+  cursor: pointer;
 }
 
 tr:hover {background-color: #79ad61 }

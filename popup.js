@@ -25,13 +25,24 @@ function maketable(data) {
         let row = table.insertRow();
         row.addEventListener('click', openLink(element.link));
         let timenode = document.createElement("td");
-        let onnode = document.createElement("td");
-        let datenode = document.createElement("td");
         timenode.innerText = processtime(element.time);
+        timenode.className='time';
+        
+        let onnode = document.createElement("td");
         onnode.innerText = "on";
-        datenode.innerText = element.date;
+        onnode.className='on';
+
+        let daynode = document.createElement("td");
+        daynode.innerText = element.date.slice(0,3);
+        daynode.className='day';
+
+        let datenode = document.createElement("td");
+        datenode.innerText = element.date.slice(4, );
+        datenode.className='date';
+
         row.appendChild(timenode);
         row.appendChild(onnode);
+        row.appendChild(daynode);
         row.appendChild(datenode);
     }
 }
