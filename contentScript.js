@@ -53,7 +53,7 @@ function processdates(links, linkdat, answer, ansfun) {
                 if (current.parentElement.parentElement.cells.length == 2) {
                     answer.push({link: current.href, date: current.innerText, time: time, bookable: true});
                 } else {
-                    answer.push({ link: current.href, date: current.innerText, time: time, bookable: false });
+                    // answer.push({ link: current.href, date: current.innerText, time: time, bookable: false });
                 }
             }
             if (firstpage && nextpagecheck.test(current.innerHTML)) {
