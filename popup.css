@@ -5,6 +5,12 @@ body {
 
 table {
   width: 60%;
+  border-spacing: 0px;
+}
+
+td {
+    /* padding: 0px; */
+    cursor: pointer;
 }
 
 td.time {
