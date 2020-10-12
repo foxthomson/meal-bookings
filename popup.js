@@ -16,7 +16,7 @@ function maketable(data) {
 
         let linknode = document.createElement("a")
         linknode.href = element.link 
-        linknode.innerText = " <td>"+ element.date + "</td>" + " <td>" + processtime(element.time) + "</td> ";
+        linknode.innerHTML = " <td>" + processtime(element.time) + "</td> <td> on </td> <td>" + element.date + "</td> ";
 
         row.appendChild(linknode);
     }
