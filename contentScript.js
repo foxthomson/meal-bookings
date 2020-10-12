@@ -7,6 +7,9 @@ var nextpagecheck = /Later/;
 function geteventscore(links, answer, ansfun) {
     // Runs process dates on each link
     if (links.length == 0) {
+        answer.sort(function (a, b) {
+            return Date.parse(a.date) - Date.parse(b.date);
+        })
         ansfun(answer);
     } else {
         $.get(links[0].link, processdates(links.slice(1), links[0], answer, ansfun));
