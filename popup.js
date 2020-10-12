@@ -17,6 +17,8 @@ function openLink(href) {
     }
 }
 
+document.getElementById("options").addEventListener('click', openLink("/options.html"));
+
 function maketable(data) {
     // make the table
     let table = document.querySelector("table");
