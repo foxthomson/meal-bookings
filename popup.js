@@ -7,18 +7,33 @@ function gettable(group) {
         chrome.tabs.sendMessage(tabs[0].id, { group: group }, maketable);
     });
 }
+
+function openLink(href) {
+    return function() {    
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            var tab = tabs[0];
+            chrome.tabs.update(tab.id, { url: href });
+        });
+    }
+}
+
 function maketable(data) {
     // make the table
     let table = document.querySelector("table");
     for (let i = 0; i < data.length; i++) {
         let element = data[i];
         let row = table.insertRow();
+        row.addEventListener('click', openLink(element.link));
 
-        let linknode = document.createElement("a")
-        linknode.href = element.link 
-        linknode.innerHTML = " <td>" + processtime(element.time) + "</td> <td> on </td> <td>" + element.date + "</td> ";
-
-        row.appendChild(linknode);
+        let timenode = document.createElement("td");
+        let onnode = document.createElement("td");
+        let datenode = document.createElement("td");
+        timenode.innerText = processtime(element.time);
+        onnode.innerText = "on";
+        datenode.innerText = element.date;
+        row.appendChild(timenode);
+        row.appendChild(onnode);
+        row.appendChild(datenode);
     }
 }
 
