@@ -4,32 +4,35 @@ chrome.storage.sync.get('group', gettable);
 
 function gettable(group) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { group: group.group }, maketable);
+        chrome.tabs.sendMessage(tabs[0].id, { group: group }, maketable);
     });
 }
 function maketable(data) {
     // make the table
     let table = document.querySelector("table");
-    for (let element of data) {
+    for (let i = 0; i < data.length; i++) {
+        let element = data[i];
         let row = table.insertRow();
 
         let linknode = document.createElement("a")
         linknode.href = element.link 
-        linknode.innerText = "<td>"+ element.date + "</td>" + " <td>" + processtime(element.time) + "</td>";
+        linknode.innerText = " <td>"+ element.date + "</td>" + " <td>" + processtime(element.time) + "</td> ";
+
+        row.appendChild(linknode);
     }
 }
 
 function processtime(time) {
-    if (time == '1230-1300') {
+    if (time == '12.30 - 13.00') {
         return 'Early Lunch';
     }
-    else if (time == '1320-1400') {
+    else if (time == '13.20 - 14.00') {
         return 'Late Lunch';
     }
-    else if (time == '1800-1845') {
+    else if (time == '18.00 - 18.45') {
         return 'Early Dinner';
     }
-    else if (time == '1915-2000') {
+    else if (time == '19.15 - 20.00') {
         return 'Late Dinner';
     }
     else {
