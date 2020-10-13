@@ -1,7 +1,7 @@
 {
   "name": "Nicer Mealbookings",
   "version": "1.0",
-  "description": "Build an Extension!",
+  "description": "A friendlier interface for Gonville and Caius Mealbookings.",
   "permissions": [
     "activeTab",
     "declarativeContent",

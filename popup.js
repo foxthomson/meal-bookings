@@ -17,41 +17,51 @@ function openLink(href) {
     }
 }
 
-document.getElementById("options").addEventListener('click', openLink("/options.html"));
+document.getElementById("creds").addEventListener('click', openLink("https://github.com/foxthomson/meal-bookings"));
+
+document.getElementById("btn").addEventListener('click', openLink("/options.html"));
 
 function maketable(data) {
     // make the table
     let table = document.querySelector("table");
-    for (let i = 0; i < data.length; i++) {
-        let element = data[i];
-        let row = table.insertRow();
-        row.addEventListener('click', openLink(element.link));
-        if (element.bookable) {
-            row.className = "bookable";
-        } else {
-            row.className = "nonbookable"
+    if (data != undefined) {
+        for (let i = 0; i < data.length; i++) {
+            let element = data[i];
+            let row = table.insertRow();
+            row.addEventListener('click', openLink(element.link));
+            if (element.bookable) {
+                row.className = "bookable";
+            } else {
+                row.className = "nonbookable"
+            }
+        
+            let timenode = document.createElement("td");
+            timenode.innerText = processtime(element.time);
+            timenode.className='time';
+        
+            let onnode = document.createElement("td");
+            onnode.innerText = "on";
+            onnode.className='on';
+
+            let daynode = document.createElement("td");
+            daynode.innerText = element.date.slice(0,3);
+            daynode.className='day';
+
+            let datenode = document.createElement("td");
+            datenode.innerText = element.date.slice(4, );
+            datenode.className='date';
+
+            row.appendChild(timenode);
+            row.appendChild(onnode);
+            row.appendChild(daynode);
+            row.appendChild(datenode);
         }
-        
-        let timenode = document.createElement("td");
-        timenode.innerText = processtime(element.time);
-        timenode.className='time';
-        
-        let onnode = document.createElement("td");
-        onnode.innerText = "on";
-        onnode.className='on';
-
-        let daynode = document.createElement("td");
-        daynode.innerText = element.date.slice(0,3);
-        daynode.className='day';
-
-        let datenode = document.createElement("td");
-        datenode.innerText = element.date.slice(4, );
-        datenode.className='date';
-
-        row.appendChild(timenode);
-        row.appendChild(onnode);
-        row.appendChild(daynode);
-        row.appendChild(datenode);
+    }
+    else {
+        let row = table.insertRow();
+        let errormessage = document.createElement("td");
+        errormessage.innerText = "please try reloading the page :("
+        row.appendChild(errormessage);
     }
 }
 
@@ -69,6 +79,9 @@ function processtime(time) {
         return 'Late Dinner';
     }
     else {
-        return 'Bruhhhhhhh'
+        return 'Unrecognised meal'
     }
 }
+
+
+ 
