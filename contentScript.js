@@ -27,7 +27,7 @@ function getevents(groupname, ansfun=false) {
             if (groupdata[1] == groupname.group) {
                 var eventlink = current.href;
                 links.push({link: eventlink, firstpage: true});
-                current.style.backgroundColor = "#c9ecec"; 
+                // current.style.backgroundColor = "#c9ecec"; 
             }   
             else { current.style.backgroundColor = "#FFFFFF";
         current.style.color="#bfbfbf";}
