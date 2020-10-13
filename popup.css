@@ -22,10 +22,6 @@ td.on {
 }
 
 td.day {
-  text-align: center;
-}
-
-td.day {
   text-align: left;
   width: 30px;
 }
@@ -51,7 +47,7 @@ td.options {
 }
 
 #footer {
-  height: 25px;
+  /* height: 25px; */
   
   overflow-x: auto;
   overflow-y: hidden;
@@ -59,7 +55,7 @@ td.options {
 
 #boxes {
   list-style: none;
-  height: 25px;
+  /* height: 25px; */
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -86,3 +82,7 @@ button {
   font-size: 12px;
 }
 
+#footeritem {
+    display: inline-block;
+    /* border: 1px; */
+}
