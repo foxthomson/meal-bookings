@@ -29,8 +29,7 @@
       ]
     }
   ],
-  "page_action": {
-    "default_popup": "popup.html",
+  "browser_action": {
     "default_icon": {
       "16": "images/caius16.png",
       "32": "images/caius32.png",
